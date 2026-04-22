@@ -26,9 +26,6 @@ RUN npx prisma generate
 
 COPY --from=builder /app/dist ./dist
 
-COPY start.sh .
-RUN chmod +x start.sh
-
 EXPOSE 3000
 
-CMD ["sh", "start.sh"]
+CMD ["npm", "run", "start:migrate"]
